@@ -145,9 +145,22 @@ bot.start((ctx) => {
 
 randomElement = generateQuestion();
 
-bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question);
-});
+// bot.command("question", (ctx) => {
+//   ctx.reply(randomElement.question);
+// });
+
+bot.command("/", (ctx) => {
+    switch(ctx.message.text) {
+        case 'potter':
+            ctx.reply(randomElement.question);
+            break
+        case 'hello':
+            ctx.reply('Hi there!');
+            break
+        default:
+            ctx.reply('no command')
+    }
+  });
 
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
