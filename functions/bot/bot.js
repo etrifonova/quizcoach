@@ -256,6 +256,7 @@ async function fetchQA() {
 
 let randomElement;
 let questionsPotter = fetchQA();
+console.log(questionsPotter);
 
 function generateQuestion() {
   randomElement = questionsPotter.map((element) => element)[
