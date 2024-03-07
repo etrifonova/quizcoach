@@ -267,8 +267,8 @@ console.log(questionsPotter);
 
 bot.start((ctx) => {
   try {
-    questionsPotter = questions.slice(0);
-    console.log("Осталось вопросов:" + questionsPotter.length);
+    // questionsPotter = questions.slice(0);
+    // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
     console.error("error in start action:", e);
@@ -295,28 +295,28 @@ bot.start((ctx) => {
 //     }
 //   });
 
-bot.on("message", (ctx) => {
-  let userAnswer = ctx.message.text.toLowerCase();
-  let correctAnswer = randomElement.answer.toLowerCase();
-  if (userAnswer === "/answer") {
-    ctx.reply(correctAnswer);
-  }
-  else if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
-    questionsPotter = questions.slice(0);
-    console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно! \n\n Это был последний вопрос.");
-    // randomElement = generateQuestion();
-  } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
-    console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно!");
-  } else {
-    ctx.reply("Неверно!");
-  }
-});
+// bot.on("message", (ctx) => {
+//   let userAnswer = ctx.message.text.toLowerCase();
+//   let correctAnswer = randomElement.answer.toLowerCase();
+//   if (userAnswer === "/answer") {
+//     ctx.reply(correctAnswer);
+//   }
+//   else if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
+//     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+//     randomElement = generateQuestion();
+//     questionsPotter = questions.slice(0);
+//     console.log("Осталось вопросов:" + questionsPotter.length);
+//     ctx.reply("Верно! \n\n Это был последний вопрос.");
+//     // randomElement = generateQuestion();
+//   } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
+//     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+//     randomElement = generateQuestion();
+//     console.log("Осталось вопросов:" + questionsPotter.length);
+//     ctx.reply("Верно!");
+//   } else {
+//     ctx.reply("Неверно!");
+//   }
+// });
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
