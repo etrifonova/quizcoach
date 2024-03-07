@@ -258,12 +258,12 @@ let randomElement;
 let questionsPotter = fetchQA();
 console.log(questionsPotter);
 
-function generateQuestion() {
-  randomElement = questionsPotter.map((element) => element)[
-    Math.floor(Math.random() * questionsPotter.length)
-  ];
-  return randomElement;
-}
+// function generateQuestion() {
+//   randomElement = questionsPotter.map((element) => element)[
+//     Math.floor(Math.random() * questionsPotter.length)
+//   ];
+//   return randomElement;
+// }
 
 bot.start((ctx) => {
   try {
@@ -276,11 +276,11 @@ bot.start((ctx) => {
   }
 });
 
-randomElement = generateQuestion();
+// randomElement = generateQuestion();
 
-bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question);
-});
+// bot.command("question", (ctx) => {
+//   ctx.reply(randomElement.question);
+// });
 
 // bot.command("/", (ctx) => {
 //     switch(ctx.message.text) {
