@@ -239,16 +239,16 @@ async function fetchQA() {
         console.log(questions.length);
         console.log(answers.length);
     
-        const arrQA = [];
-    
         for (let i = 0; i < 50; i++) {
           arrQA.push({question: '', answer: ''});
           arrQA[i].question = questions[i];
           arrQA[i].answer = answers[i];
           console.log(arrQA);
         }
-        return arrQA;
       });
+      
+      const arrQA = await response.json();
+      return arrQA;
   } catch (error) {
       console.error(error);
   }
