@@ -217,38 +217,45 @@ bot.telegram.getMe().then((botInfo) => {
 //   { question: "Язык мой - враг мой, ", answer: "прежде ума рыщет, беды ищет" },
 // ];
 
-fetch("https://db.chgk.info/xml")
-  .then((response) => response.text())
-  .then((text) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, "text/xml");
-    const nodesQ = doc.querySelectorAll("Question");
-    const nodesA = doc.querySelectorAll("Answer");
-    let questions = [];
-    for (const nodeQ of nodesQ) {
-      const question = nodeQ.innerHTML;
-      questions.push(question);
-    }
-    let answers = [];
-    for (const nodeA of nodesA) {
-      const answer = nodeA.innerHTML;
-      answers.push(answer);
-    }
-    console.log(questions.length);
-    console.log(answers.length);
-
-    const arrQA = [];
-
-    for (let i = 0; i < 50; i++) {
-      arrQA.push({question: '', answer: ''});
-      arrQA[i].question = questions[i];
-      arrQA[i].answer = answers[i];
-      console.log(arrQA);
-    }
-
+async function fetchQA() {
+  try {
+      const response = await fetch("https://db.chgk.info/xml")
+      .then((response) => response.text())
+      .then((text) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, "text/xml");
+        const nodesQ = doc.querySelectorAll("Question");
+        const nodesA = doc.querySelectorAll("Answer");
+        let questions = [];
+        for (const nodeQ of nodesQ) {
+          const question = nodeQ.innerHTML;
+          questions.push(question);
+        }
+        let answers = [];
+        for (const nodeA of nodesA) {
+          const answer = nodeA.innerHTML;
+          answers.push(answer);
+        }
+        console.log(questions.length);
+        console.log(answers.length);
     
+        const arrQA = [];
+    
+        for (let i = 0; i < 50; i++) {
+          arrQA.push({question: '', answer: ''});
+          arrQA[i].question = questions[i];
+          arrQA[i].answer = answers[i];
+          console.log(arrQA);
+        }
+        return arrQA;
+      });
+  } catch (error) {
+      console.error(error);
+  }
+}
+
 let randomElement;
-let questionsPotter = arrQA.slice(0);
+let questionsPotter = fetchQA();
 
 function generateQuestion() {
   randomElement = questionsPotter.map((element) => element)[
@@ -273,6 +280,19 @@ randomElement = generateQuestion();
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question);
 });
+
+// bot.command("/", (ctx) => {
+//     switch(ctx.message.text) {
+//         case 'potter':
+//             ctx.reply(randomElement.question);
+//             break
+//         case 'hello':
+//             ctx.reply('Hi there!');
+//             break
+//         default:
+//             ctx.reply('no command')
+//     }
+//   });
 
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
@@ -310,5 +330,3 @@ exports.handler = async (event) => {
     };
   }
 };
-
-  });
