@@ -1,8 +1,10 @@
 const { Telegraf } = require("telegraf");
 // const session = require('telegraf/session');
 // const questions = require("../../questions.js");
-const questions = require("../../fetch.js");
+// const questions = require("../../fetch.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
+import fetch from 'node-fetch';
+
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
@@ -228,10 +230,15 @@ bot.telegram.getMe().then((botInfo) => {
 //   return randomElement;
 // }
 
+const response = await fetch('https://github.com/');
+const body = await response.text();
+
+console.log(body);
+
 bot.start((ctx) => {
   try {
     // questionsPotter = questions.slice(0);
-    console.log(questions)
+    console.log(body)
     // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
