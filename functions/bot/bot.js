@@ -231,14 +231,12 @@ bot.telegram.getMe().then((botInfo) => {
 // }
 
 const response = fetch('https://github.com/');
-const body = response.text();
-
-console.log(body);
+// const body = response.text();
 
 bot.start((ctx) => {
   try {
     // questionsPotter = questions.slice(0);
-    console.log(body)
+    console.log(response)
     // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
