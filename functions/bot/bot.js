@@ -3,7 +3,7 @@ const { Telegraf } = require("telegraf");
 // const questions = require("../../questions.js");
 // const questions = require("../../fetch.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 
 bot.telegram.getMe().then((botInfo) => {
