@@ -218,21 +218,21 @@ bot.telegram.getMe().then((botInfo) => {
 //   { question: "Язык мой - враг мой, ", answer: "прежде ума рыщет, беды ищет" },
 // ];
 
-let randomElement;
-let questionsPotter = questions.slice(0);
+// let randomElement;
+// let questionsPotter = questions.slice(0);
 
-function generateQuestion() {
-  randomElement = questionsPotter.map((element) => element)[
-    Math.floor(Math.random() * questionsPotter.length)
-  ];
-  return randomElement;
-}
+// function generateQuestion() {
+//   randomElement = questionsPotter.map((element) => element)[
+//     Math.floor(Math.random() * questionsPotter.length)
+//   ];
+//   return randomElement;
+// }
 
 bot.start((ctx) => {
   try {
-    questionsPotter = questions.slice(0);
-    console.log("Осталось вопросов:" + questionsPotter.length);
-console.log(questionsPotter);
+    // questionsPotter = questions.slice(0);
+    console.log(questions)
+    // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
     console.error("error in start action:", e);
@@ -240,47 +240,34 @@ console.log(questionsPotter);
   }
 });
 
-randomElement = generateQuestion();
+// randomElement = generateQuestion();
 
-bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question);
-});
+// bot.command("question", (ctx) => {
+//   ctx.reply(randomElement.question);
+// });
 
-bot.command("/", (ctx) => {
-    switch(ctx.message.text) {
-        case 'potter':
-            ctx.reply(randomElement.question);
-            break
-        case 'hello':
-            ctx.reply('Hi there!');
-            break
-        default:
-            ctx.reply('no command')
-    }
-  });
-
-bot.on("message", (ctx) => {
-  let userAnswer = ctx.message.text.toLowerCase();
-  let correctAnswer = randomElement.answer.toLowerCase();
-  if (userAnswer === "/answer") {
-    ctx.reply(correctAnswer);
-  }
-  else if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
-    questionsPotter = questions.slice(0);
-    console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно! \n\n Это был последний вопрос.");
-    // randomElement = generateQuestion();
-  } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
-    console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно!");
-  } else {
-    ctx.reply("Неверно!");
-  }
-});
+// bot.on("message", (ctx) => {
+//   let userAnswer = ctx.message.text.toLowerCase();
+//   let correctAnswer = randomElement.answer.toLowerCase();
+//   if (userAnswer === "/answer") {
+//     ctx.reply(correctAnswer);
+//   }
+//   else if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
+//     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+//     randomElement = generateQuestion();
+//     questionsPotter = questions.slice(0);
+//     console.log("Осталось вопросов:" + questionsPotter.length);
+//     ctx.reply("Верно! \n\n Это был последний вопрос.");
+//     // randomElement = generateQuestion();
+//   } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
+//     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+//     randomElement = generateQuestion();
+//     console.log("Осталось вопросов:" + questionsPotter.length);
+//     ctx.reply("Верно!");
+//   } else {
+//     ctx.reply("Неверно!");
+//   }
+// });
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
