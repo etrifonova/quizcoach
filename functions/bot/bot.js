@@ -230,13 +230,13 @@ bot.telegram.getMe().then((botInfo) => {
 //   return randomElement;
 // }
 
-const response = fetch('https://github.com/');
-// const body = response.text();
+const response = await fetch('https://github.com/');
+const body = response.text();
 
 bot.start((ctx) => {
   try {
     // questionsPotter = questions.slice(0);
-    console.log(response)
+    console.log(body)
     // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
