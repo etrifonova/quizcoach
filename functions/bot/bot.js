@@ -231,12 +231,12 @@ bot.telegram.getMe().then((botInfo) => {
 // }
 
 const response = await fetch('https://db.chgk.info/');
-const body = await response.text();
+// const body = await response.text();
 
 bot.start((ctx) => {
   try {
     // questionsPotter = questions.slice(0);
-    console.log(body)
+    console.log(response)
     // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
