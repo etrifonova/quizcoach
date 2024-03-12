@@ -230,8 +230,8 @@ bot.telegram.getMe().then((botInfo) => {
 //   return randomElement;
 // }
 
-const response = await fetch('https://api.github.com/users/github');
-const data = await response.json();
+const response = fetch('https://api.github.com/users/github');
+const data = response.json();
 
 bot.start((ctx) => {
   try {
