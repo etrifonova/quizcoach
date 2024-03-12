@@ -1,7 +1,7 @@
 const { Telegraf } = require("telegraf");
 // const session = require('telegraf/session');
 // const questions = require("../../questions.js");
-// const questions = require("../../fetch.js");
+const questions = require("../../fetch.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const fetch = require('node-fetch');
 
@@ -230,13 +230,10 @@ bot.telegram.getMe().then((botInfo) => {
 //   return randomElement;
 // }
 
-const response = fetch('https://api.github.com/users/github');
-
 bot.start((ctx) => {
   try {
     // questionsPotter = questions.slice(0);
-const data = response.json();
-    console.log(data)
+    console.log(questions)
     // console.log("Осталось вопросов:" + questionsPotter.length);
     return ctx.reply("Hello there");
   } catch (e) {
