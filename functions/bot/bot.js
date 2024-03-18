@@ -22,10 +22,6 @@ bot.command("custom", async (ctx) => {
   return await ctx.reply("Custom buttons keyboard", getMenu());
 });
 
-// bot.hears("Вопрос", (ctx) => {
-//   ctx.reply(randomElement.question);
-// });
-
 bot.start((ctx) => {
   try {
     questionsPotter = questions.slice(0);
