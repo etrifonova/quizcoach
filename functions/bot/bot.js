@@ -22,9 +22,9 @@ bot.command("custom", async (ctx) => {
   return await ctx.reply("Custom buttons keyboard", getMenu());
 });
 
-bot.hears("🔍 География", (ctx) => {
-  ctx.reply(randomElement.question);
-});
+// bot.hears("Вопрос", (ctx) => {
+//   ctx.reply(randomElement.question);
+// });
 
 bot.start((ctx) => {
   try {
