@@ -9,6 +9,13 @@ bot.telegram.getMe().then((botInfo) => {
 
 let questionsPotter = questions.slice(0);
 
+function generateQuestion() {
+  randomElement = questionsPotter.map((element) => element)[
+    Math.floor(Math.random() * questionsPotter.length)
+  ];
+  return randomElement;
+}
+
 bot.start((ctx) => {
   try {
     questionsPotter = questions.slice(0);
