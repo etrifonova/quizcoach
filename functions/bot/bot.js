@@ -2,7 +2,7 @@ const { Telegraf } = require("telegraf");
 // const session = require('telegraf/session');
 const questions = require("../../questions.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const getMenu = require("../../keyboards.js");
+const getMenu = require("../../keyboard.js");
 
 
 bot.telegram.getMe().then((botInfo) => {
