@@ -2,6 +2,8 @@ const { Telegraf } = require("telegraf");
 // const session = require('telegraf/session');
 const questions = require("../../questions.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
+const getMenu = require("../../keyboards.js");
+
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
@@ -15,6 +17,14 @@ function generateQuestion() {
   ];
   return randomElement;
 }
+
+bot.command("custom", async (ctx) => {
+  return await ctx.reply("Custom buttons keyboard", getMenu());
+});
+
+bot.hears("🔍 География", (ctx) => {
+  ctx.reply(randomElement.question);
+});
 
 bot.start((ctx) => {
   try {
@@ -46,7 +56,6 @@ bot.on("message", (ctx) => {
     questionsPotter = questions.slice(0);
     console.log("Осталось вопросов:" + questionsPotter.length);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
-    // randomElement = generateQuestion();
   } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
     randomElement = generateQuestion();
