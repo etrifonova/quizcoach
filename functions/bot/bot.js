@@ -41,6 +41,17 @@ bot.command("question", (ctx) => {
   ctx.reply(randomElement.question);
 });
 
+bot.command("random", ctx => {
+	return ctx.reply(
+		"random example",
+		Markup.inlineKeyboard([
+			Markup.button.callback("Coke", "Coke"),
+			Markup.button.callback("Dr Pepper", "Dr Pepper", Math.random() > 0.5),
+			Markup.button.callback("Pepsi", "Pepsi"),
+		]),
+	);
+});
+
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
