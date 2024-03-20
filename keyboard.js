@@ -1,13 +1,13 @@
 const { Markup } = require("telegraf");
 
 module.exports = {
-  getMenu: () => {
-    return Markup.keyboard([
-      ["/question", "/answer"],
-    ])
-      .oneTime()
-      .resize()
-  },
+  // getMenu: () => {
+  //   return Markup.keyboard([
+  //     ["/question", "/answer"],
+  //   ])
+  //     .oneTime()
+  //     .resize()
+  // },
   
   getKeyboard: () => {
    
