@@ -35,7 +35,7 @@ randomElement = generateQuestion();
 
 
 bot.command("custom", async (ctx) => {
-  return await ctx.reply("Custom buttons keyboard", getMenu);
+  return await ctx.reply("Custom buttons keyboard", getKeyboard);
 });
 
 bot.command("random", async (ctx) => {
