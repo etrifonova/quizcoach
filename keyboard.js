@@ -1,11 +1,15 @@
 const { Markup } = require("telegraf");
 
 function getMenu() {
-  return Markup.keyboard([
-    ["/question", "/answer"],
-  ])
-    .oneTime()
-    .resize()
+  // return Markup.keyboard([
+  //   ["/question", "/answer"],
+  // ])
+  //   .oneTime()
+  //   .resize()
+  
+return Markup.inlineKeyboard([
+  Markup.button.callback("Coke", "Coke")
+])
 }
 
 function getKeyboard() {
