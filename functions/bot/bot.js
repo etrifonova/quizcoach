@@ -38,8 +38,8 @@ bot.command("custom", async (ctx) => {
   return await ctx.reply("Custom buttons keyboard", getMenu());
 });
 
-bot.command("random", ctx => {
-	return ctx.reply(
+bot.command("random", async (ctx) => {
+	return await ctx.reply(
 		"random example", getKeyboard()
 	);
 });
