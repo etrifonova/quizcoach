@@ -3,6 +3,7 @@ const { Telegraf } = require("telegraf");
 const questions = require("../../questions.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const getMenu = require("../../keyboard.js");
+const getKeyboard = require("../../keyboard.js");
 
 
 bot.telegram.getMe().then((botInfo) => {
@@ -37,19 +38,14 @@ bot.command("custom", async (ctx) => {
   return await ctx.reply("Custom buttons keyboard", getMenu());
 });
 
-bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question);
-});
-
 bot.command("random", ctx => {
 	return ctx.reply(
-		"random example",
-		Markup.inlineKeyboard([
-			Markup.button.callback("Coke", "Coke"),
-			Markup.button.callback("Dr Pepper", "Dr Pepper", Math.random() > 0.5),
-			Markup.button.callback("Pepsi", "Pepsi"),
-		]),
+		"random example", getKeyboard()
 	);
+});
+
+bot.command("question", (ctx) => {
+  ctx.reply(randomElement.question);
 });
 
 bot.on("message", (ctx) => {
