@@ -18,10 +18,6 @@ function generateQuestion() {
   return randomElement;
 }
 
-bot.command("custom", async (ctx) => {
-  return await ctx.reply("Custom buttons keyboard", getMenu());
-});
-
 bot.start((ctx) => {
   try {
     questionsPotter = questions.slice(0);
@@ -35,6 +31,11 @@ bot.start((ctx) => {
 });
 
 randomElement = generateQuestion();
+
+
+bot.command("custom", async (ctx) => {
+  return await ctx.reply("Custom buttons keyboard", getMenu());
+});
 
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question);
