@@ -1,24 +1,20 @@
 const { Markup } = require("telegraf");
 
-function getMenu() {
-  // return Markup.keyboard([
-  //   ["/question", "/answer"],
-  // ])
-  //   .oneTime()
-  //   .resize()
+module.exports = {
+  getMenu: () => {
+    return Markup.keyboard([
+      ["/question", "/answer"],
+    ])
+      .oneTime()
+      .resize()
+  },
   
-return Markup.inlineKeyboard([
-  Markup.button.callback("Coke", "Coke")
-])
+  getKeyboard: () => {
+   
+  return Markup.inlineKeyboard([
+    Markup.button.callback("Coke", "Coke"),
+    // Markup.button.callback("Dr Pepper", "Dr Pepper", Math.random() > 0.5),
+    // Markup.button.callback("Pepsi", "Pepsi"),
+  ])
+  }
 }
-
-function getKeyboard() {
- 
-return Markup.inlineKeyboard([
-  Markup.button.callback("Coke", "Coke"),
-  // Markup.button.callback("Dr Pepper", "Dr Pepper", Math.random() > 0.5),
-  // Markup.button.callback("Pepsi", "Pepsi"),
-])
-}
-
-module.exports = getMenu, getKeyboard;
