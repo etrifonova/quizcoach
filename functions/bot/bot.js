@@ -39,7 +39,7 @@ bot.command("question", (ctx) => {
 		]),);
 });
 
-bot.hears("Ответ", ctx => ctx.reply(randomElement.answer));
+bot.on("Ответ", ctx => ctx.reply(randomElement.answer));
 
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
