@@ -1,4 +1,4 @@
-const { Telegraf } = require("telegraf");
+const { Telegraf, Markup } = require("telegraf");
 // const session = require('telegraf/session');
 const questions = require("../../questions.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -33,7 +33,12 @@ bot.start((ctx) => {
 randomElement = generateQuestion();
 
 bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question, getKeyboard);
+  ctx.reply(randomElement.question, 
+		Markup.inlineKeyboard([
+			Markup.button.callback("Coke", "Coke"),
+			Markup.button.callback("Dr Pepper", "Dr Pepper", Math.random() > 0.5),
+			Markup.button.callback("Pepsi", "Pepsi"),
+		]),);
 });
 
 bot.on("message", (ctx) => {
