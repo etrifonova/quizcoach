@@ -35,9 +35,11 @@ randomElement = generateQuestion();
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question, 
 		Markup.inlineKeyboard([
-			Markup.button.callback("/answer", "/answer")
+			Markup.button.callback("Ответ", "Ответ")
 		]),);
 });
+
+bot.hears("Ответ", ctx => ctx.reply(randomElement.answer));
 
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
