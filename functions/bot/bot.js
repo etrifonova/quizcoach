@@ -33,8 +33,7 @@ bot.start((ctx) => {
 randomElement = generateQuestion();
 
 bot.command("question", (ctx) => {
-  getKeyboard;
-  ctx.reply(randomElement.question);
+  ctx.reply(randomElement.question + '\n' + getKeyboard);
 });
 
 bot.on("message", (ctx) => {
