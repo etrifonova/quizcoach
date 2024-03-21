@@ -2,7 +2,6 @@ const { Telegraf } = require("telegraf");
 // const session = require('telegraf/session');
 const questions = require("../../questions.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const getMenu = require("../../keyboard.js");
 const getKeyboard = require("../../keyboard.js");
 
 
@@ -33,18 +32,9 @@ bot.start((ctx) => {
 
 randomElement = generateQuestion();
 
-
-bot.command("custom", async (ctx) => {
-  return await ctx.reply("Custom buttons keyboard", getKeyboard);
-});
-
-bot.command("random", async (ctx) => {
-	return await ctx.reply(
-		"random example", getKeyboard);
-});
-
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question);
+  ctx.reply(getKeyboard);
 });
 
 bot.on("message", (ctx) => {
