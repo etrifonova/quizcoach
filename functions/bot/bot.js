@@ -57,11 +57,16 @@ bot.on("message", (ctx) => {
     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно!");
+    ctx.reply("Верно!", 
+		Markup.inlineKeyboard([
+			Markup.button.callback("Вопрос", "Вопрос")
+		]));
   } else {
     ctx.reply("Неверно!");
   }
 });
+
+bot.action("Вопрос", ctx => ctx.reply(randomElement.question))
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
