@@ -66,7 +66,11 @@ bot.on("message", (ctx) => {
   }
 });
 
-bot.action("Вопрос", ctx => ctx.reply(randomElement.question))
+bot.action("Вопрос", ctx => 
+ctx.reply(randomElement.question, 
+  Markup.inlineKeyboard([
+    Markup.button.callback("Ответ", "Ответ")
+  ])))
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
