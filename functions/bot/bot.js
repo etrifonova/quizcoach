@@ -57,7 +57,7 @@ bot.on("message", (ctx) => {
     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно!", 
+    ctx.reply("Верно!" + " \n" + randomElement.comment, 
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
 		]));
