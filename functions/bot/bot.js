@@ -44,6 +44,7 @@ bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
+  let comment = randomElement.comment;
   if (userAnswer === "/answer") {
     ctx.reply(correctAnswer);
   }
@@ -57,7 +58,7 @@ bot.on("message", (ctx) => {
     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     console.log("Осталось вопросов:" + questionsPotter.length);
-    ctx.reply("Верно!" + " \n" + randomElement.comment, 
+    ctx.reply("Верно!" + " \n" + comment, 
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
 		]));
