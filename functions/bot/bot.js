@@ -41,6 +41,17 @@ bot.command("question", (ctx) => {
 
 bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
+
+
+bot.hears(/\/wrap (\d+)/, ctx => {
+	return ctx.reply(
+		"Keyboard wrap",
+		Markup.keyboard(["one", "two", "three", "four", "five", "six"], {
+			columns: parseInt(ctx.match[1]),
+		}),
+	);
+});
+
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
