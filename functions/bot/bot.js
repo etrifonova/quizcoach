@@ -41,6 +41,8 @@ bot.command("question", (ctx) => {
 
 bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
+bot.action("Комментарий", ctx => ctx.reply(randomElement.comment))
+
 bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
@@ -70,7 +72,8 @@ bot.on("message", (ctx) => {
 bot.action("Вопрос", ctx => 
 ctx.reply(randomElement.question, 
   Markup.inlineKeyboard([
-    Markup.button.callback("Ответ", "Ответ")
+    Markup.button.callback("Ответ", "Ответ"),
+    Markup.button.callback("Комментарий", "Комментарий")
   ])))
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
