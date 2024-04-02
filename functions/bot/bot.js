@@ -52,10 +52,8 @@ bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
   let comment = randomElement.comment;
-  if (userAnswer === "/answer") {
-    ctx.reply(correctAnswer);
-  }
-  else if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
+  
+  if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
     questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     questionsPotter = questions.slice(0);
