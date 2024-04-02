@@ -23,7 +23,10 @@ bot.start((ctx) => {
     questionsPotter = questions.slice(0);
     console.log(questions)
     console.log("Осталось вопросов:" + questionsPotter.length);
-    return ctx.reply("Hello there");
+    return ctx.reply("Hello there",
+		Markup.inlineKeyboard([
+			Markup.button.callback("Вопрос", "Вопрос")
+		]));
   } catch (e) {
     console.error("error in start action:", e);
     return ctx.reply("Error occurred");
