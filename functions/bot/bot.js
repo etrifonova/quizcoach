@@ -43,7 +43,7 @@ bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
 
 
-bot.hears(/\/wrap (\d+)/, ctx => {
+bot.on(/\/wrap (\d+)/, ctx => {
 	return ctx.reply(
 		"Keyboard wrap",
 		Markup.keyboard(["one", "two", "three", "four", "five", "six"], {
