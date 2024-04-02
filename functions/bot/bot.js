@@ -35,7 +35,7 @@ randomElement = generateQuestion();
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question, 
 		Markup.inlineKeyboard([
-			Markup.button.callback("Ответ", "Ответ")
+			Markup.button.callback("Ответ", "Ответ", Math.random() > 0.5)
 		]),);
 });
 
