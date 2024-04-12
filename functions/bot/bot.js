@@ -43,6 +43,10 @@ bot.command("question", (ctx) => {
 		]),);
 });
 
+bot.command("answer", (ctx) => 
+ctx.reply(randomElement.answer)
+)
+
 bot.action("Вопрос", ctx => 
 ctx.reply(randomElement.question, 
   Markup.inlineKeyboard([
