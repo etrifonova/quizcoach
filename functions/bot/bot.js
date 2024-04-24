@@ -23,7 +23,7 @@ bot.start((ctx) => {
     questionsPotter = questions.slice(0);
     console.log(questions)
     console.log("Осталось вопросов:" + questionsPotter.length);
-    return ctx.reply("Hello there",
+    return ctx.reply("Поехали!",
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
 		]));
