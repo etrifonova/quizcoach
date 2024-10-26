@@ -376,11 +376,15 @@ const questions = [
   {
     question:
       '"... безотказных способов, позволяющих зачаровывать волшебниц”. Какое число пропущено?"',
+    hint: "no hint yet",
+    comment: "no comment yet",
     answer: "12",
   },
   {
     question:
       "Кому принадлежали часы, подаренные Гарри Артуром и Молли Уизли? (имя и фамилия в именительном падеже)",
+    hint: "no hint yet",
+    comment: "no comment yet",
     answer: "Фабиан Пруэтт",
   },
 ];
