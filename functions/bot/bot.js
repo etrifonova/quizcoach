@@ -18,43 +18,20 @@ function generateQuestion() {
   return randomElement;
 }
 
-// Start command with category selection
 bot.start((ctx) => {
   try {
-    return ctx.reply(
-      "Выберите категорию:",
-      Markup.inlineKeyboard(
-        categories.map((category) =>
-          Markup.button.callback(category, `CATEGORY_${category}`)
-        )
-      )
-    );
+    questionsPotter = questions.slice(0);
+    console.log(questions)
+    console.log("Осталось вопросов:" + questionsPotter.length);
+    return ctx.reply("Поехали!",
+		Markup.inlineKeyboard([
+			Markup.button.callback("Вопрос", "Вопрос")
+		]));
   } catch (e) {
     console.error("error in start action:", e);
     return ctx.reply("Error occurred");
   }
 });
-
-// Handle category selection
-bot.action(/CATEGORY_(.+)/, (ctx) => {
-  const selectedCategory = ctx.match[1];
-  questionsPotter = questions.filter(
-    (question) => question.category === selectedCategory
-  );
-
-  if (questionsPotter.length > 0) {
-    randomElement = generateQuestion();
-    return ctx.reply(
-      `Категория: ${selectedCategory}. Начнем!`,
-      Markup.inlineKeyboard([
-        Markup.button.callback("Вопрос", "Вопрос"),
-      ])
-    );
-  } else {
-    return ctx.reply("В этой категории пока нет вопросов.");
-  }
-});
-
 
 randomElement = generateQuestion();
 
