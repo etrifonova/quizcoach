@@ -21,7 +21,6 @@ function generateQuestion() {
 bot.start((ctx) => {
   try {
     currentQuestions = questions.slice(0);
-    console.log(questions)
     console.log("Осталось вопросов:" + currentQuestions.length);
     return ctx.reply("Поехали!",
 		Markup.inlineKeyboard([
@@ -75,7 +74,6 @@ bot.on("message", (ctx) => {
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
-    console.log("Осталось вопросов:" + currentQuestions.length);
     ctx.reply("Верно!" + " \n" + comment, 
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")

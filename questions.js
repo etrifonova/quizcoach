@@ -1,8 +1,10 @@
 const questions = [
 
- /* Гарри Поттер */
-
   {
+    category: "Гарри Поттер",
+    id: 0,
+    questions: [
+      {
     question: "13 ½ дюйма, тис, перо феникса - чья палочка?",
     hint: "no hint yet",
     comment: "no comment yet",
@@ -149,6 +151,8 @@ const questions = [
     hint: "no hint yet",
     comment: "no comment yet",
     answer: "Фабиан Пруэтт",
+  },
+    ]
   },
 
   /* Пословицы */ 
