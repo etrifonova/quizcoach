@@ -11,6 +11,8 @@ bot.telegram.getMe().then((botInfo) => {
 
 let currentQuestions = questions[1].questions.slice(0);
 
+const categories = [...new Set(questions.map((q) => q.category))];
+
 function generateQuestion() {
   randomElement = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
@@ -21,7 +23,7 @@ function generateQuestion() {
 bot.start((ctx) => {
   try {
     currentQuestions = questions[1].questions.slice(0);
-    console.log("Осталось вопросов:" + currentQuestions.length);
+    console.log(categories);
     return ctx.reply("Поехали!",
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
