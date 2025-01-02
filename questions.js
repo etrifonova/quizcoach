@@ -155,155 +155,251 @@ const questions = [
     ]
   },
 
-  /* Пословицы */ 
+  
   {
+    category: "Пословицы",
+    id: 0,
+    questions: [
+      {
     question: "Аппетит приходит во время еды, ",
     answer: "а жадность - во время аппетита",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "Бабушка гадала, надвое сказала, ",
     answer: "то ли дождик, то ли снег, то ли будет, то ли нет",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Бедность - не порок, ", answer: "а несчастье" },
+  { question: "Бедность - не порок, ", answer: "а несчастье",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "В здоровом теле здоровый дух - ", answer: "редкая удача" },
+  { question: "В здоровом теле здоровый дух - ", answer: "редкая удача",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "В семье не без урода, ",
     answer: "а из-за урода все не в угоду",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "Везет, как субботнему утопленнику - ",
     answer: "баню топить не надо",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "Ворон ворону глаз не выклюет, ",
     answer: "а и выклюет, да не вытащит",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Всяк правду ищет, ", answer: "да не всяк её творит" },
+  { question: "Всяк правду ищет, ", answer: "да не всяк её творит",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Где тонко, там и рвётся, ",
     answer: "где толсто, там и наслаивается",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "Гладко было на бумаге, ",
     answer: "да забыли про овраги, а по ним ходить",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Гол как сокол, ", answer: "а остер как топор" },
+  { question: "Гол как сокол, ", answer: "а остер как топор",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Голод не тетка, ", answer: "пирожка не поднесет" },
+  { question: "Голод не тетка, ", answer: "пирожка не поднесет",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Горбатого могила исправит, ", answer: "а упрямого - дубина" },
+  { question: "Горбатого могила исправит, ", answer: "а упрямого - дубина",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Губа не дура, ",
     answer: "язык не лопата: знают, что горько, что сладко",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Два сапога пара, ", answer: "да оба левые" },
+  { question: "Два сапога пара, ", answer: "да оба левые",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Двое третьего ждут, ", answer: "а семеро одного не ждут" },
+  { question: "Двое третьего ждут, ", answer: "а семеро одного не ждут",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Девичий стыд - до порога, ", answer: "переступила и забыла" },
+  { question: "Девичий стыд - до порога, ", answer: "переступила и забыла",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Дело мастера боится, ", answer: "а иной мастер дела" },
+  { question: "Дело мастера боится, ", answer: "а иной мастер дела",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Дорога ложка к обеду, ", answer: "а там хоть под лавку" },
+  { question: "Дорога ложка к обеду, ", answer: "а там хоть под лавку",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Дуракам закон не писан, ",
     answer:
       "если писан - то не читан, если читан - то не понят, если понят - то не так",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Живем, хлеб жуем, ", answer: "а иногда и подсаливаем" },
+  { question: "Живем, хлеб жуем, ", answer: "а иногда и подсаливаем",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "За битого двух небитых дают, ",
     answer: "да не больно-то берут",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "За двумя зайцами погонишься - ",
     answer: "ни одного кабана не поймаешь",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "За морем веселье, ",
     answer: "да чужое, а у нас и горе, да своё",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "Зайца ноги носят, ",
     answer: "волка зубы кормят, лису хвост бережет",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "И делу время, ", answer: "и потехе час" },
+  { question: "И делу время, ", answer: "и потехе час",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "И слепая лошадь везёт, ", answer: "коли зрячий на возу сидит" },
+  { question: "И слепая лошадь везёт, ", answer: "коли зрячий на возу сидит",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Комар лошадь не повалит, ", answer: "пока медведь не подсобит" },
+  { question: "Комар лошадь не повалит, ", answer: "пока медведь не подсобит",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Кто старое помянет - ",
     answer: "тому глаз вон, а кто забудет - тому оба",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Курочка по зернышку клюет, ", answer: "а весь двор в помёте" },
+  { question: "Курочка по зернышку клюет, ", answer: "а весь двор в помёте",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Лиха беда начало, ", answer: "а там уж близок и конец" },
+  { question: "Лиха беда начало, ", answer: "а там уж близок и конец",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "Лиха беда почин - ", answer: "есть дыра, будет и прореха" },
+  { question: "Лиха беда почин - ", answer: "есть дыра, будет и прореха",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Молодые бранятся - ",
     answer: "тешатся, а старики бранятся - бесятся",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "На (обиженных) сердитых воду возят, ",
     answer: "а на добрых сами катаются",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
   {
     question: "На чужой каравай рот не разевай, ",
     answer: "пораньше вставай да свой затевай",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Не все коту масленица, ", answer: "будет и пост" },
+  { question: "Не все коту масленица, ", answer: "будет и пост",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Не печалится дятел, ",
     answer: "что петь не может, его и так весь лес слышит",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Ни рыба, ни мясо, ", answer: "ни кафтан, ни ряса" },
+  { question: "Ни рыба, ни мясо, ", answer: "ни кафтан, ни ряса",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
   {
     question: "Новая метла по-новому метёт, ",
     answer: "а как сломается - под лавкой валяется",
+    hint: "no hint yet",
+    comment: "no comment yet",
   },
 
-  { question: "Один в поле не воин, ", answer: "а путник" },
+  { question: "Один в поле не воин, ", answer: "а путник",
+    hint: "no hint yet",
+    comment: "no comment yet", },
 
-  { question: "От работы кони дохнут, ", answer: "а люди - крепнут" },
-  { question: "От овса кони не рыщут, ", answer: "а от добра добра не ищут" },
-  { question: "Палка, о двух концах, ", answer: "туда и сюда бьет" },
-  { question: "Повторенье - мать ученья, ", answer: "утешенье дураков" },
-  { question: "Повторение - мать учения и прибежище для лентяев" },
+  { question: "От работы кони дохнут, ", answer: "а люди - крепнут",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "От овса кони не рыщут, ", answer: "а от добра добра не ищут",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Палка, о двух концах, ", answer: "туда и сюда бьет",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Повторенье - мать ученья, ", answer: "утешенье дураков",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Повторение - мать учения и прибежище для лентяев",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Под лежачий камень вода не течёт, ",
     answer: "а под катящийся - не успевает",
   },
-  { question: "Пьяному море по колено, ", answer: "а лужа - по уши" },
+  { question: "Пьяному море по колено, ", answer: "а лужа - по уши",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Пыль столбом, дым коромыслом, ",
     answer: "а изба не топлена, не метена",
@@ -320,22 +416,30 @@ const questions = [
     question: "Рыбак рыбака видит издалека, ",
     answer: "потому стороной и обходит",
   },
-  { question: "Рука руку моет, ", answer: "да обе свербят" },
+  { question: "Рука руку моет, ", answer: "да обе свербят",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "С пчелой поладишь - ",
     answer: "медку достанешь, с жуком свяжешься - в навозе окажешься",
   },
-  { question: "Свой глаз - алмаз, ", answer: "а чужой - стекло" },
+  { question: "Свой глаз - алмаз, ", answer: "а чужой - стекло",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Семь бед - один ответ, ",
     answer: "восьмая беда - совсем никуда",
   },
-  { question: "Смелого пуля боится, ", answer: "а труса и в кустах найдёт" },
+  { question: "Смелого пуля боится, ", answer: "а труса и в кустах найдёт",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Собака на сене лежит, ",
     answer: "сама не ест и скотине не дает",
   },
-  { question: "Собаку съели, ", answer: "хвостом подавились" },
+  { question: "Собаку съели, ", answer: "хвостом подавились",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Старость не радость, ",
     answer: "сядешь - не встанешь, побежишь - не остановишься",
@@ -348,21 +452,39 @@ const questions = [
     question: "Тише едешь - ",
     answer: "дальше будешь от того места, куда едешь",
   },
-  { question: "У страха глаза велики, ", answer: "да ничего не видят" },
+  { question: "У страха глаза велики, ", answer: "да ничего не видят",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Ударили по одной щеке - ",
     answer: "подставь другую, но не позволь себя ударить",
   },
-  { question: "Ума палата, ", answer: "а ключ потерян" },
+  { question: "Ума палата, ", answer: "а ключ потерян",
+    hint: "no hint yet",
+    comment: "no comment yet", },
   {
     question: "Хлеб на стол - и стол престол, ",
     answer: "а хлеба ни куска - и стол доска",
   },
-  { question: "Хлопот полон рот, ", answer: "а прикусить нечего" },
-  { question: "Чудеса в решете - ", answer: "дыр много, а выскочить некуда" },
-  { question: "Шито-крыто, ", answer: "а узелок-то тут" },
-  { question: "Язык мой - враг мой, ", answer: "прежде ума глаголет" },
-  { question: "Язык мой - враг мой, ", answer: "прежде ума рыщет, беды ищет" },
+  { question: "Хлопот полон рот, ", answer: "а прикусить нечего",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Чудеса в решете - ", answer: "дыр много, а выскочить некуда",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Шито-крыто, ", answer: "а узелок-то тут",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Язык мой - враг мой, ", answer: "прежде ума глаголет",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+  { question: "Язык мой - враг мой, ", answer: "прежде ума рыщет, беды ищет",
+    hint: "no hint yet",
+    comment: "no comment yet", },
+    ]
+  },
+
+  
 
   /* Годы публикации книг */
   { question: "В каком году опубликован роман \"Унесенные ветром\"?", answer: "1936", hint: "В этом году прошли Зимние и Летние Олимпийские игры в нацистской Германии и началась гражданская война в Испании.", comment: "1936 - год публикации романа \"Унесенные ветром\"" },

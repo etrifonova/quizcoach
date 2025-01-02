@@ -9,7 +9,7 @@ bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
 });
 
-let currentQuestions = questions[0].questions.slice(0);
+let currentQuestions = questions[1].questions.slice(0);
 
 function generateQuestion() {
   randomElement = currentQuestions.map((element) => element)[
@@ -20,7 +20,7 @@ function generateQuestion() {
 
 bot.start((ctx) => {
   try {
-    currentQuestions = questions[0].questions.slice(0);
+    currentQuestions = questions[1].questions.slice(0);
     console.log("Осталось вопросов:" + currentQuestions.length);
     return ctx.reply("Поехали!",
 		Markup.inlineKeyboard([
@@ -67,7 +67,7 @@ bot.on("message", (ctx) => {
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
-    currentQuestions = questions[0].questions.slice(0);
+    currentQuestions = questions[1].questions.slice(0);
     console.log("Осталось вопросов:" + currentQuestions.length);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = generateQuestion();
