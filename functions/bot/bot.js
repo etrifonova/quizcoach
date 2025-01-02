@@ -44,7 +44,26 @@ bot.start((ctx) => {
   }
 });
 
-randomElement = generateQuestion();
+bot.action(/CATEGORY_(.+)/, (ctx) => {
+  const selectedCategory = ctx.match[1];
+  questionsPotter = questions.filter(
+    (question) => question.category === selectedCategory
+  );
+
+  if (questionsPotter.length > 0) {
+    randomElement = generateQuestion();
+    return ctx.reply(
+      `Категория: ${selectedCategory}. Начнем!`,
+      Markup.inlineKeyboard([
+        Markup.button.callback("Вопрос", "Вопрос"),
+      ])
+    );
+  } else {
+    return ctx.reply("В этой категории пока нет вопросов.");
+  }
+});
+
+// randomElement = generateQuestion();
 
 bot.command("question", (ctx) => {
   ctx.reply(randomElement.question, 
