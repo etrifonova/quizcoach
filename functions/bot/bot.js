@@ -70,7 +70,7 @@ bot.on("message", (ctx) => {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     currentQuestions = questions[1].questions.slice(0);
-    console.log("Осталось вопросов:" + currentQuestions.length);
+    console.log(categories);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = generateQuestion();
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
