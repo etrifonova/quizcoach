@@ -12,6 +12,7 @@ bot.telegram.getMe().then((botInfo) => {
 let currentQuestions = questions[1].questions.slice(0);
 
 const categories = [...new Set(questions.map((q) => q.category))];
+    console.log(categories);
 
 function generateQuestion() {
   randomElement = currentQuestions.map((element) => element)[
