@@ -10,6 +10,7 @@ bot.telegram.getMe().then((botInfo) => {
 });
 
 let currentQuestions;
+let randomElement;
 
 function generateQuestion() {
   randomElement = currentQuestions.map((element) => element)[
