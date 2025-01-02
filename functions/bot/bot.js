@@ -25,10 +25,19 @@ bot.start((ctx) => {
   try {
     currentQuestions = questions[1].questions.slice(0);
     console.log(categories);
-    return ctx.reply("Поехали!",
-		Markup.inlineKeyboard([
-			Markup.button.callback("Вопрос", "Вопрос")
-		]));
+    
+    return ctx.reply(
+      "Выберите категорию:",
+      Markup.inlineKeyboard(
+        categories.map((category) =>
+          Markup.button.callback(category, `CATEGORY_${category}`)
+        )
+      )
+    );
+    // return ctx.reply("Поехали!",
+		// Markup.inlineKeyboard([
+		// 	Markup.button.callback("Вопрос", "Вопрос")
+		// ]));
   } catch (e) {
     console.error("error in start action:", e);
     return ctx.reply("Error occurred");
