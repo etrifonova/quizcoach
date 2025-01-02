@@ -9,10 +9,7 @@ bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
 });
 
-let currentQuestions = questions[1].questions.slice(0);
-
-const categories = [...new Set(questions.map((q) => q.category))];
-    console.log(categories);
+let currentQuestions;
 
 function generateQuestion() {
   randomElement = currentQuestions.map((element) => element)[
@@ -20,6 +17,9 @@ function generateQuestion() {
   ];
   return randomElement;
 }
+
+const categories = [...new Set(questions.map((q) => q.category))];
+    console.log(categories);
 
 bot.start((ctx) => {
   try {
@@ -62,6 +62,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
     return ctx.reply("В этой категории пока нет вопросов.");
   }
 });
+
 
 // randomElement = generateQuestion();
 
