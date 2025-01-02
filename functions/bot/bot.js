@@ -22,10 +22,7 @@ const categories = [...new Set(questions.map((q) => q.category))];
     console.log(categories);
 
 bot.start((ctx) => {
-  try {
-    currentQuestions = questions[1].questions.slice(0);
-    console.log(categories);
-    
+  try {    
     return ctx.reply(
       "Выберите категорию:",
       Markup.inlineKeyboard(
