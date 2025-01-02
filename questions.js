@@ -1,6 +1,6 @@
 const questions = [
 
-  HARRY POTTER
+ /* HARRY POTTER */
 
   {
     question: "13 ½ дюйма, тис, перо феникса - чья палочка?",
