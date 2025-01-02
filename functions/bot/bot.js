@@ -46,6 +46,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
   if (currentQuestions.length > 0) {
     randomElement = generateQuestion();
+    console.log(randomElement);
     return ctx.reply(
       `Категория: ${selectedCategory}. Начнем!`,
       Markup.inlineKeyboard([
