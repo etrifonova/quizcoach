@@ -46,11 +46,11 @@ bot.start((ctx) => {
 
 bot.action(/CATEGORY_(.+)/, (ctx) => {
   const selectedCategory = ctx.match[1];
-  questionsPotter = questions.filter(
+  currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
   );
 
-  if (questionsPotter.length > 0) {
+  if (currentQuestions.length > 0) {
     randomElement = generateQuestion();
     return ctx.reply(
       `Категория: ${selectedCategory}. Начнем!`,
