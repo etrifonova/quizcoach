@@ -31,10 +31,6 @@ bot.start((ctx) => {
         )
       )
     );
-    // return ctx.reply("Поехали!",
-		// Markup.inlineKeyboard([
-		// 	Markup.button.callback("Вопрос", "Вопрос")
-		// ]));
   } catch (e) {
     console.error("error in start action:", e);
     return ctx.reply("Error occurred");
