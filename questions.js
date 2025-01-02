@@ -1,6 +1,6 @@
 const questions = [
 
- /* HARRY POTTER */
+ /* Гарри Поттер */
 
   {
     question: "13 ½ дюйма, тис, перо феникса - чья палочка?",
@@ -150,6 +150,8 @@ const questions = [
     comment: "no comment yet",
     answer: "Фабиан Пруэтт",
   },
+
+  /* Пословицы */ 
   {
     question: "Аппетит приходит во время еды, ",
     answer: "а жадность - во время аппетита",
