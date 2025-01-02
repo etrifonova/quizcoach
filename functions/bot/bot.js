@@ -9,20 +9,20 @@ bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
 });
 
-let questionsPotter = questions.slice(0);
+let currentQuestions = questions.slice(0);
 
 function generateQuestion() {
-  randomElement = questionsPotter.map((element) => element)[
-    Math.floor(Math.random() * questionsPotter.length)
+  randomElement = currentQuestions.map((element) => element)[
+    Math.floor(Math.random() * currentQuestions.length)
   ];
   return randomElement;
 }
 
 bot.start((ctx) => {
   try {
-    questionsPotter = questions.slice(0);
+    currentQuestions = questions.slice(0);
     console.log(questions)
-    console.log("Осталось вопросов:" + questionsPotter.length);
+    console.log("Осталось вопросов:" + currentQuestions.length);
     return ctx.reply("Поехали!",
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
@@ -65,17 +65,17 @@ bot.on("message", (ctx) => {
   let correctAnswer = randomElement.answer.toLowerCase();
   let comment = randomElement.comment;
   
-  if (questionsPotter.length == 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+  if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
+    currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
-    questionsPotter = questions.slice(0);
-    console.log("Осталось вопросов:" + questionsPotter.length);
+    currentQuestions = questions.slice(0);
+    console.log("Осталось вопросов:" + currentQuestions.length);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = generateQuestion();
-  } else if (questionsPotter.length > 1 && userAnswer === correctAnswer) {
-    questionsPotter.splice(questionsPotter.indexOf(randomElement), 1);
+  } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
+    currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
-    console.log("Осталось вопросов:" + questionsPotter.length);
+    console.log("Осталось вопросов:" + currentQuestions.length);
     ctx.reply("Верно!" + " \n" + comment, 
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
