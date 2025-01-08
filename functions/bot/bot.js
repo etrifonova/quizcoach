@@ -13,9 +13,7 @@ let currentQuestions;
 let randomElement;
 
 function generateQuestion() {
-  let questionsArray = currentQuestions.map((element) => element)[
-    Math.floor(Math.random() * currentQuestions.length)
-  ];
+  let questionsArray = currentQuestions.questions;
   return questionsArray;
 }
 
@@ -45,8 +43,8 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
   if (currentQuestions.length > 0) {
     return ctx.reply(
-      // `Категория: ${selectedCategory}. летс го!!`,
-      `Категория: ${selectedCategory}. Поехали!`,
+      `Категория: ${selectedCategory}. летс го!!`,
+      // `Категория: ${selectedCategory}. Поехали!`,
       Markup.inlineKeyboard([
         Markup.button.callback("Вопрос", "Вопрос"),
       ])
