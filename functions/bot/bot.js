@@ -39,7 +39,6 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
   )[0].questions;
-  console.log(currentQuestions);
 
   if (currentQuestions.length > 0) {
     randomElement = currentQuestions.map((element) => element)[
