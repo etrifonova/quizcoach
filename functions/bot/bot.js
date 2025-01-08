@@ -40,12 +40,11 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
   );
-  randomElement = currentQuestions.questions;
 
   if (currentQuestions.length > 0) {
+    randomElement = currentQuestions[Math.floor(Math.random() * currentQuestions.length)];
     return ctx.reply(
-      `Категория: ${selectedCategory}. летс го!!`,
-      // `Категория: ${selectedCategory}. Поехали!`,
+      `Категория: ${selectedCategory}. Начнем!`,
       Markup.inlineKeyboard([
         Markup.button.callback("Вопрос", "Вопрос"),
       ])
@@ -55,40 +54,22 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   }
 });
 
+bot.action("Вопрос", (ctx) => {
+  if (!randomElement) {
+    console.error("randomElement is undefined");
+    return ctx.reply("Ошибка: вопрос не найден.");
+  }
+  
+  console.log("Random Element:", randomElement);
 
-// randomElement = generateQuestion();
-
-// bot.command("question", (ctx) => {
-//   ctx.reply(randomElement.question, 
-// 		Markup.inlineKeyboard([
-// 			Markup.button.callback("Ответ", "Ответ"),
-//       Markup.button.callback("Подсказка", "Подсказка")
-// 		]),);
-// });
-
-// bot.command("answer", (ctx) => 
-// ctx.reply(randomElement.answer)
-// )
-
-bot.action("Вопрос", ctx => 
-// ctx.reply(randomElement.question, 
-//   Markup.inlineKeyboard([
-//     Markup.button.callback("Ответ", "Ответ"),
-//     Markup.button.callback("Подсказка", "Подсказка")
-//   ]))
-
-{
-  try {
-    console.log(randomElement);
-    return ctx.reply(
-      "working!"
-    );
-  } catch (e) {
-    console.error("error in start action:", e);
-    return ctx.reply("NOT WORKING");
-  }}
-
-)
+  return ctx.reply(
+    randomElement.question,
+    Markup.inlineKeyboard([
+      Markup.button.callback("Ответ", "Ответ"),
+      Markup.button.callback("Подсказка", "Подсказка"),
+    ])
+  );
+});
 
 bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
