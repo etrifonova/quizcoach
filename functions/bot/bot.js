@@ -79,7 +79,7 @@ bot.action("Вопрос", ctx =>
 {
   try {
     randomElement = generateQuestion();
-    console.log(randomElement);
+    console.log(generateQuestion());
     return ctx.reply(
       "working!"
     );
