@@ -12,10 +12,10 @@ bot.telegram.getMe().then((botInfo) => {
 let currentQuestions;
 let randomElement;
 
-function generateQuestion() {
-  let questionsArray = currentQuestions.questions;
-  return questionsArray;
-}
+// function generateQuestion() {
+//   let questionsArray = currentQuestions.questions;
+//   return questionsArray;
+// }
 
 const categories = [...new Set(questions.map((q) => q.category))];
 
@@ -40,7 +40,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
   );
-  randomElement = generateQuestion();
+  randomElement = currentQuestions.questions;
 
   if (currentQuestions.length > 0) {
     return ctx.reply(
@@ -103,13 +103,13 @@ bot.on("message", (ctx) => {
   
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
+    randomElement = currentQuestions.questions;
     currentQuestions = questions[1].questions.slice(0);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
-    randomElement = generateQuestion();
+    randomElement = currentQuestions.questions;
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-    randomElement = generateQuestion();
+    randomElement = currentQuestions.questions;
     ctx.reply("Верно!" + " \n" + comment, 
 		Markup.inlineKeyboard([
 			Markup.button.callback("Вопрос", "Вопрос")
