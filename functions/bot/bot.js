@@ -83,7 +83,7 @@ bot.action("Вопрос", (ctx) => {
   }
 });
 
-bot.action("Ответ", (ctx) => ctx.reply(randomElement.answer));
+// bot.action("Ответ", (ctx) => ctx.reply(randomElement.answer));
 
 bot.action("Комментарий", (ctx) => ctx.reply(randomElement.comment));
 
