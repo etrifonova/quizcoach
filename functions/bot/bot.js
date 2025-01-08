@@ -74,11 +74,23 @@ ctx.reply(randomElement.answer)
 )
 
 bot.action("Вопрос", ctx => 
-ctx.reply(randomElement.question, 
-  Markup.inlineKeyboard([
-    Markup.button.callback("Ответ", "Ответ"),
-    Markup.button.callback("Подсказка", "Подсказка")
-  ])))
+// ctx.reply(randomElement.question, 
+//   Markup.inlineKeyboard([
+//     Markup.button.callback("Ответ", "Ответ"),
+//     Markup.button.callback("Подсказка", "Подсказка")
+//   ]))
+
+{
+  try {    
+    return ctx.reply(
+      "working!"
+    );
+  } catch (e) {
+    console.error("error in start action:", e);
+    return ctx.reply("NOT WORKING");
+  }}
+
+)
 
 bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
