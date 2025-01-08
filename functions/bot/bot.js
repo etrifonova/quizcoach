@@ -40,11 +40,12 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
     (question) => question.category === selectedCategory
   )[0].questions;
 
+  randomElement = currentQuestions.map((element) => element)[
+    Math.floor(Math.random() * currentQuestions.length)
+  ];
+  console.log(randomElement.answer);
+
   if (currentQuestions.length > 0) {
-    randomElement = currentQuestions.map((element) => element)[
-      Math.floor(Math.random() * currentQuestions.length)
-    ];
-    console.log(randomElement.answer);
     return ctx.reply(
       `Категория: ${selectedCategory}. Поехали!`,
       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
