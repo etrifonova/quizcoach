@@ -44,9 +44,9 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   );
 
   if (currentQuestions.length > 0) {
-    randomElement = generateQuestion();
     return ctx.reply(
-      `Категория: ${selectedCategory}. Поехали!`,
+      `Категория: ${selectedCategory}. летс го!!`,
+      // `Категория: ${selectedCategory}. Поехали!`,
       Markup.inlineKeyboard([
         Markup.button.callback("Вопрос", "Вопрос"),
       ])
@@ -79,7 +79,8 @@ bot.action("Вопрос", ctx =>
 //   ]))
 
 {
-  try {    
+  try {
+    randomElement = generateQuestion();
     console.log(randomElement.question);
     return ctx.reply(
       "working!"
