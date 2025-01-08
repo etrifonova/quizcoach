@@ -73,17 +73,13 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 // )
 
 bot.action("Вопрос", ctx => 
-// ctx.reply(randomElement.question, 
-//   Markup.inlineKeyboard([
-//     Markup.button.callback("Ответ", "Ответ"),
-//     Markup.button.callback("Подсказка", "Подсказка")
-//   ]))
-
 {
   try {
-    return ctx.reply(
-      "working!"
-    );
+ctx.reply(randomElement.question, 
+  Markup.inlineKeyboard([
+    Markup.button.callback("Ответ", "Ответ"),
+    Markup.button.callback("Подсказка", "Подсказка")
+  ]))
   } catch (e) {
     console.error("error in start action:", e);
     return ctx.reply("NOT WORKING");
