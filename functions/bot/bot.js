@@ -38,7 +38,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   const selectedCategory = ctx.match[1];
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
-  )[0].questions.slice(0);
+  )[0].questions;
   console.log(currentQuestions);
 
   if (currentQuestions.length > 0) {
