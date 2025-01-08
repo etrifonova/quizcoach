@@ -97,8 +97,9 @@ bot.on("message", (ctx) => {
 
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-    randomElement = currentQuestions.questions;
-    currentQuestions = questions[1].questions.slice(0);
+    // randomElement = currentQuestions.questions;
+    // currentQuestions = questions[1].questions.slice(0);
+    console.log("Осталось вопросов: " + currentQuestions.length)
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = currentQuestions.questions;
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
