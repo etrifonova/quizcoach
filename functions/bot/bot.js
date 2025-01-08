@@ -90,29 +90,32 @@ bot.action("Комментарий", (ctx) => ctx.reply(randomElement.comment));
 
 bot.action("Подсказка", (ctx) => ctx.reply(randomElement.hint));
 
-// bot.on("message", (ctx) => {
-//   let userAnswer = ctx.message.text.toLowerCase();
-//   let correctAnswer = randomElement.answer.toLowerCase();
-//   let comment = randomElement.comment;
+bot.on("message", (ctx) => {
+  let userAnswer = ctx.message.text.toLowerCase();
+  let correctAnswer = randomElement.answer.toLowerCase();
+  let comment = randomElement.comment;
 
-//   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
-//     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-//     // randomElement = currentQuestions.questions;
-//     // currentQuestions = questions[1].questions.slice(0);
-//     console.log("Осталось вопросов: " + currentQuestions.length)
-//     ctx.reply("Верно! \n\n Это был последний вопрос.");
-//     randomElement = currentQuestions.questions;
-//   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
-//     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-//     randomElement = currentQuestions.questions;
-//     ctx.reply(
-//       "Верно!" + " \n" + comment,
-//       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
-//     );
-//   } else {
-//     ctx.reply("Неверно!");
-//   }
-// });
+  if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
+    currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
+    randomElement = currentQuestions.map((element) => element)[
+    Math.floor(Math.random() * currentQuestions.length)
+  ];
+    console.log("Осталось вопросов: " + currentQuestions.length)
+    ctx.reply("Верно! \n\n Это был последний вопрос.");
+    randomElement = currentQuestions.questions;
+  } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
+    currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
+    randomElement = currentQuestions.map((element) => element)[
+    Math.floor(Math.random() * currentQuestions.length)
+  ];
+    ctx.reply(
+      "Верно!" + " \n" + comment,
+      Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
+    );
+  } else {
+    ctx.reply("Неверно!");
+  }
+});
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
