@@ -100,7 +100,6 @@ bot.on("message", (ctx) => {
     randomElement = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
   ];
-    console.log("Осталось вопросов: " + currentQuestions.length)
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = currentQuestions.questions;
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
@@ -109,7 +108,7 @@ bot.on("message", (ctx) => {
     Math.floor(Math.random() * currentQuestions.length)
   ];
     ctx.reply(
-      "Верно!" + " \n" + comment,
+      "Верно!" + " \n" + comment + " \n" + "Осталось вопросов: " + currentQuestions.length,
       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
     );
   } else {
