@@ -40,6 +40,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
   );
+  randomElement = generateQuestion();
 
   if (currentQuestions.length > 0) {
     return ctx.reply(
@@ -78,8 +79,7 @@ bot.action("Вопрос", ctx =>
 
 {
   try {
-    randomElement = generateQuestion();
-    console.log(generateQuestion());
+    console.log(randomElement);
     return ctx.reply(
       "working!"
     );
