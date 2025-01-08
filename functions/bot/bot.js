@@ -42,7 +42,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   console.log(currentQuestions);
 
   if (currentQuestions.length > 0) {
-    randomElement = currentQuestions[0].questions.map((element) => element)[
+    randomElement = currentQuestions.map((element) => element)[
       Math.floor(Math.random() * currentQuestions.length)
     ];
     console.log(randomElement);
