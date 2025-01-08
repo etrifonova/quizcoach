@@ -13,14 +13,13 @@ let currentQuestions;
 let randomElement;
 
 function generateQuestion() {
-  randomElement = currentQuestions.map((element) => element)[
+  let questionsArray = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
   ];
-  return randomElement;
+  return questionsArray;
 }
 
 const categories = [...new Set(questions.map((q) => q.category))];
-    console.log(categories);
 
 bot.start((ctx) => {
   try {    
@@ -46,7 +45,6 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
   if (currentQuestions.length > 0) {
     randomElement = generateQuestion();
-    console.log(randomElement);
     return ctx.reply(
       `Категория: ${selectedCategory}. Поехали!`,
       Markup.inlineKeyboard([
@@ -61,17 +59,17 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
 // randomElement = generateQuestion();
 
-bot.command("question", (ctx) => {
-  ctx.reply(randomElement.question, 
-		Markup.inlineKeyboard([
-			Markup.button.callback("Ответ", "Ответ"),
-      Markup.button.callback("Подсказка", "Подсказка")
-		]),);
-});
+// bot.command("question", (ctx) => {
+//   ctx.reply(randomElement.question, 
+// 		Markup.inlineKeyboard([
+// 			Markup.button.callback("Ответ", "Ответ"),
+//       Markup.button.callback("Подсказка", "Подсказка")
+// 		]),);
+// });
 
-bot.command("answer", (ctx) => 
-ctx.reply(randomElement.answer)
-)
+// bot.command("answer", (ctx) => 
+// ctx.reply(randomElement.answer)
+// )
 
 bot.action("Вопрос", ctx => 
 // ctx.reply(randomElement.question, 
@@ -108,7 +106,6 @@ bot.on("message", (ctx) => {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = generateQuestion();
     currentQuestions = questions[1].questions.slice(0);
-    console.log(categories);
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = generateQuestion();
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
