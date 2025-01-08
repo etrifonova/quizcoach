@@ -43,7 +43,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
   if (currentQuestions.length > 0) {
   randomElement = currentQuestions.questions;
-    console.log(randomElement);
+    console.log(currentQuestions.questions);
     return ctx.reply(
       `Категория: ${selectedCategory}. летс го!!`,
       // `Категория: ${selectedCategory}. Поехали!`,
