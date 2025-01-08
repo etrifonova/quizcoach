@@ -42,9 +42,11 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   );
 
   if (currentQuestions.length > 0) {
-    randomElement = currentQuestions[Math.floor(Math.random() * currentQuestions.length)];
+  randomElement = currentQuestions.questions;
+    console.log(randomElement);
     return ctx.reply(
-      `Категория: ${selectedCategory}. Начнем!`,
+      `Категория: ${selectedCategory}. летс го!!`,
+      // `Категория: ${selectedCategory}. Поехали!`,
       Markup.inlineKeyboard([
         Markup.button.callback("Вопрос", "Вопрос"),
       ])
@@ -54,22 +56,39 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   }
 });
 
-bot.action("Вопрос", (ctx) => {
-  if (!randomElement) {
-    console.error("randomElement is undefined");
-    return ctx.reply("Ошибка: вопрос не найден.");
-  }
-  
-  console.log("Random Element:", randomElement);
 
-  return ctx.reply(
-    randomElement.question,
-    Markup.inlineKeyboard([
-      Markup.button.callback("Ответ", "Ответ"),
-      Markup.button.callback("Подсказка", "Подсказка"),
-    ])
-  );
-});
+// randomElement = generateQuestion();
+
+// bot.command("question", (ctx) => {
+//   ctx.reply(randomElement.question, 
+// 		Markup.inlineKeyboard([
+// 			Markup.button.callback("Ответ", "Ответ"),
+//       Markup.button.callback("Подсказка", "Подсказка")
+// 		]),);
+// });
+
+// bot.command("answer", (ctx) => 
+// ctx.reply(randomElement.answer)
+// )
+
+bot.action("Вопрос", ctx => 
+// ctx.reply(randomElement.question, 
+//   Markup.inlineKeyboard([
+//     Markup.button.callback("Ответ", "Ответ"),
+//     Markup.button.callback("Подсказка", "Подсказка")
+//   ]))
+
+{
+  try {
+    return ctx.reply(
+      "working!"
+    );
+  } catch (e) {
+    console.error("error in start action:", e);
+    return ctx.reply("NOT WORKING");
+  }}
+
+)
 
 bot.action("Ответ", ctx => ctx.reply(randomElement.answer))
 
