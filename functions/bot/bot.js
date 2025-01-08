@@ -38,7 +38,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   const selectedCategory = ctx.match[1];
   currentQuestions = questions.filter(
     (question) => question.category === selectedCategory
-  )[0].questions;
+  )[0].questions.slice();
 
   randomElement = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
