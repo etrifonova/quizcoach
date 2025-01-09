@@ -99,13 +99,12 @@ bot.on("message", (ctx) => {
 
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
-    ctx.reply("Верно! \n\n Это был последний вопрос.");
-
-    currentQuestions = [
-      ...questions.filter(
-        (question) => question.category === selectedCategory
-      )[0].questions,
-    ];
+    ctx.reply("Верно! \n\n Это был последний вопрос. \n\n Выберите категорию:",
+      Markup.inlineKeyboard(
+        categories.map((category) =>
+          Markup.button.callback(category, `CATEGORY_${category}`)
+        )
+      ));
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = currentQuestions.map((element) => element)[
