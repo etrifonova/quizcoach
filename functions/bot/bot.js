@@ -48,7 +48,7 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
 
   if (currentQuestions.length > 0) {
     return ctx.reply(
-      `Категория: ${selectedCategory}. Поехали!`,
+      `Категория: ${selectedCategory}. VAMOS!`,
       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
     );
   } else {
