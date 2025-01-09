@@ -36,9 +36,10 @@ bot.start((ctx) => {
 
 bot.action(/CATEGORY_(.+)/, (ctx) => {
   const selectedCategory = ctx.match[1];
-  currentQuestions = [...questions.filter(
-    (question) => question.category === selectedCategory
-  )[0].questions];
+  currentQuestions = [
+    ...questions.filter((question) => question.category === selectedCategory)[0]
+      .questions,
+  ];
 
   randomElement = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
@@ -98,17 +99,28 @@ bot.on("message", (ctx) => {
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = currentQuestions.map((element) => element)[
-    Math.floor(Math.random() * currentQuestions.length)
-  ];
+      Math.floor(Math.random() * currentQuestions.length)
+    ];
     ctx.reply("Верно! \n\n Это был последний вопрос.");
     randomElement = currentQuestions.questions;
+
+    currentQuestions = [
+      ...questions.filter(
+        (question) => question.category === selectedCategory
+      )[0].questions,
+    ];
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = currentQuestions.map((element) => element)[
-    Math.floor(Math.random() * currentQuestions.length)
-  ];
+      Math.floor(Math.random() * currentQuestions.length)
+    ];
     ctx.reply(
-      "Верно!" + " \n" + comment + " \n" + "Осталось вопросов: " + currentQuestions.length,
+      "Верно!" +
+        " \n" +
+        comment +
+        " \n" +
+        "Осталось вопросов: " +
+        currentQuestions.length,
       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
     );
   } else {
