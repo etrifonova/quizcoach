@@ -44,7 +44,6 @@ bot.action(/CATEGORY_(.+)/, (ctx) => {
   randomElement = currentQuestions.map((element) => element)[
     Math.floor(Math.random() * currentQuestions.length)
   ];
-  console.log(randomElement.answer);
 
   if (currentQuestions.length > 0) {
     return ctx.reply(
@@ -95,6 +94,8 @@ bot.on("message", (ctx) => {
   let userAnswer = ctx.message.text.toLowerCase();
   let correctAnswer = randomElement.answer.toLowerCase();
   let comment = randomElement.comment;
+
+  console.log(randomElement.answer);
 
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
