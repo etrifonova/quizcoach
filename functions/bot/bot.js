@@ -18,21 +18,31 @@ let randomElement;
 
 const categories = [...new Set(questions.map((q) => q.category))];
 
+function createKeyboard(categories, columns) {
+  const keyboard = [];
+  for (let i = 0; i < categories.length; i += columns) {
+    keyboard.push(
+      categories
+        .slice(i, i + columns)
+        .map((category) => Markup.button.callback(category, `CATEGORY_${category}`))
+    );
+  }
+  return keyboard;
+}
+
 bot.start((ctx) => {
   try {
+    const keyboard = createKeyboard(categories, 2); // Specify 2 columns per row
     return ctx.reply(
       "Выберите категорию:",
-      Markup.inlineKeyboard(
-        categories.map((category) =>
-          Markup.button.callback(category, `CATEGORY_${category}`)
-        )
-      )
+      Markup.inlineKeyboard(keyboard)
     );
   } catch (e) {
-    console.error("error in start action:", e);
+    console.error("Error in start action:", e);
     return ctx.reply("Error occurred");
   }
 });
+
 
 bot.action(/CATEGORY_(.+)/, (ctx) => {
   const selectedCategory = ctx.match[1];
