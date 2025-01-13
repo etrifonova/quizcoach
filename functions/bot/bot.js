@@ -110,11 +110,8 @@ bot.on("message", (ctx) => {
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     ctx.reply("Верно! \n\n Это был последний вопрос. \n\n Выберите категорию:",
-      Markup.inlineKeyboard(
-        categories.map((category) =>
-          Markup.button.callback(category, `CATEGORY_${category}`)
-        )
-      ));
+      Markup.inlineKeyboard(keyboard)
+    );
   } else if (currentQuestions.length > 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
     randomElement = currentQuestions.map((element) => element)[
@@ -122,9 +119,9 @@ bot.on("message", (ctx) => {
     ];
     ctx.reply(
       "Верно!" +
-        " \n" +
+        " \n\n" +
         comment +
-        " \n" +
+        " \n\n" +
         "Осталось вопросов: " +
         currentQuestions.length,
       Markup.inlineKeyboard([Markup.button.callback("Вопрос", "Вопрос")])
