@@ -109,6 +109,7 @@ bot.on("message", (ctx) => {
 
   if (currentQuestions.length == 1 && userAnswer === correctAnswer) {
     currentQuestions.splice(currentQuestions.indexOf(randomElement), 1);
+    const keyboard = createKeyboard(categories, 2); // Specify 2 columns per row
     ctx.reply("Верно! \n\n Это был последний вопрос. \n\n Выберите категорию:",
       Markup.inlineKeyboard(keyboard)
     );
